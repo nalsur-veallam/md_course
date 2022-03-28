@@ -1,6 +1,6 @@
-## First assignment of the Molecular Dynamics course
+# First assignment of the Molecular Dynamics course
 
-# The task:
+## The task:
 
 1) During how many integration steps is the Maxwell distribution established in the system? (1 point)
 
@@ -17,7 +17,10 @@ c) Check the formula for pressure correction in the presence of potential cutoff
 4) Estimation of the error of averaging
 Using the block average method, evaluate the error in calculating the total energy (see Workshop 2). (2 points)
 
-# Directory description
+## Directory description
 
 A detailed report and its .tex file are located in this directory(otchet.pdf and report/otchet.tex).
-The first item of the task is completed in the maxwell/ catalog.
+* The first item of the task is completed in the maxwell/ catalog.
+* The second item of the task is completed in the dynamic_mem/ catalog.
+* The third item of the task is completed in the pressure/ catalog.
+* The fourth item of the task is completed in the error/ catalog.

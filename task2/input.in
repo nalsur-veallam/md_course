@@ -1,0 +1,36 @@
+variable t string 1
+
+units lj
+boundary p p p
+atom_style atomic
+
+lattice fcc 0.8
+region r1 block -6 6 -6 6 -6 6
+create_box 1 r1
+create_atoms 1 box
+mass 1 1.0
+
+pair_style lj/cut 2.5
+pair_coeff * * 1.0 1.0
+
+velocity all create $t 322 mom yes rot no
+reset_timestep	0
+timestep 0.001
+
+#### Equilibration ####
+fix base all npt temp 0.6 0.6 0.1 iso 10 10 1
+
+thermo_style custom temp etotal press density
+thermo 100
+
+run 10000
+unfix base
+
+
+fix start all npt temp 0.6 2.0 1 iso 10 10 1
+
+thermo_style custom temp etotal press density
+thermo 100
+
+run 50000
+unfix start

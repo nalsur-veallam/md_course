@@ -1,0 +1,31 @@
+variable t string 1
+
+units lj
+boundary p p p
+atom_style atomic
+
+lattice fcc 1.2
+region r1 block -20 20 -20 20 -20 20
+create_box 1 r1
+create_atoms 1 box
+mass 1 1.0
+
+pair_style lj/cut 2.5
+pair_coeff * * 1.0 1.0
+
+velocity all create $t 322 mom yes rot no
+reset_timestep	0
+timestep 0.001
+
+#### Equilibration ####
+fix start all nvt temp 1.0 1.0 1
+
+compute 1 all msd average yes
+
+thermo_style custom c_1[4]
+thermo 1
+
+dump		vel all custom  10000 dump.* id x y z
+
+run 100000
+unfix start

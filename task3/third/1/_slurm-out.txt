@@ -1,0 +1,7 @@
+=========================================
+SLURM_JOB_ID = 18389
+SLURM_JOB_NODELIST = node20-102
+SLURM_CPUS_ON_NODE = 4
+SLURM_JOB_PARTITION = RT
+SLURM_TASK_PID = 262388
+==========================================
